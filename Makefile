@@ -1,6 +1,9 @@
 setup:
 	yarn install
 
+setup-devcontainer:
+	yarn install
+
 build-rust:
 	wasm-pack build --out-name index --target web
 

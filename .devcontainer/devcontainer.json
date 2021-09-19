@@ -1,0 +1,4 @@
+{
+  "postCreateCommand": "make setup-devcontainer",
+  "extensions": []
+}
