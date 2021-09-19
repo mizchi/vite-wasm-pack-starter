@@ -1,0 +1,59 @@
+# jobs:
+#   build:
+#     env:
+#       CARGO_INCREMENTAL: 1
+
+#   - name: Install Python
+#     uses: actions/setup-python@v2
+#   - name: Restore mtime
+#     run: python ./git-restore-mtime.py
+#   - uses: actions/cache@v2
+#     with:
+#       path: |
+#         ~/.cargo/registry
+#         ~/.cargo/git
+#         target
+#       key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+name: Test
+
+on:
+  push:
+  # branches: [ develop ]
+  pull_request:
+    branches: [master]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    env:
+      CARGO_INCREMENTAL: 1
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: git-restore-mtime
+        uses: chetan/git-restore-mtime-action@v1.0
+      - name: Cache cargo objects
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+      - name: Build
+        run: make
+    # - name: Run tests
+    #   run: cargo test --verbose
+    # - name: Deploy examples
+    #   uses: peaceiris/actions-gh-pages@v3
+    #   with:
+    #     github_token: ${{ secrets.GITHUB_TOKEN }}
+    #     publish_dir: ./public
+    # - name: Setup mdBook
+    #   uses: peaceiris/actions-mdbook@v1
+    #   with:
+    #     mdbook-version: '0.4.10'
