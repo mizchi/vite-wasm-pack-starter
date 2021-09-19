@@ -28,6 +28,6 @@ mod tests {
     use super::*;
     #[test]
     fn it_works() {
-        assert_eq!(greet("World"), "World!".to_string());
+        assert_eq!(greet("World"), "World".to_string());
     }
 }
