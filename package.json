@@ -2,11 +2,11 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "make build && vite build",
+    "build": "vite build",
     "serve": "vite preview",
     "watch": "run-p watch:web watch:rust",
     "watch:web": "yarn dev",
-    "watch:rust": "chokidar 'src/**/*.rs' -t 1000 -c 'make build'"
+    "watch:rust": "chokidar 'src/**/*.rs' -t 1000 -c 'make build-rust'"
   },
   "devDependencies": {
     "chokidar-cli": "^3.0.0",

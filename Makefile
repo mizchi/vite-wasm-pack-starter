@@ -1,9 +1,11 @@
 setup:
 	yarn install
 
-build:
+build-rust:
 	wasm-pack build --out-name index --target web
-	vite build
+
+build: build-rust
+	yarn build
 
 test:
 	cargo test

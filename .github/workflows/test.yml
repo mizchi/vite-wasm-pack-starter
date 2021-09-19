@@ -32,6 +32,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      # rust setup
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
       - name: git-restore-mtime
         uses: chetan/git-restore-mtime-action@v1.0
       - name: Cache cargo objects
@@ -46,20 +50,7 @@ jobs:
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
       - uses: jetli/wasm-pack-action@v0.3.0
         with:
-          # Optional version of wasm-pack to install(eg. 'v0.9.1', 'latest')
-          version: "latest"
+          version: "latest" # "v0.9.1"
       - run: make setup
       - run: make build
       - run: make test
-
-    # - name: Run tests
-    #   run: cargo test --verbose
-    # - name: Deploy examples
-    #   uses: peaceiris/actions-gh-pages@v3
-    #   with:
-    #     github_token: ${{ secrets.GITHUB_TOKEN }}
-    #     publish_dir: ./public
-    # - name: Setup mdBook
-    #   uses: peaceiris/actions-mdbook@v1
-    #   with:
-    #     mdbook-version: '0.4.10'
