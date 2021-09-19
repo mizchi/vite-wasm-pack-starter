@@ -2,6 +2,7 @@ setup:
 	yarn install
 
 setup-devcontainer:
+	curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 	yarn install
 
 build-rust:

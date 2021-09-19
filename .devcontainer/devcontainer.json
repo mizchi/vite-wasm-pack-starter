@@ -1,4 +1,12 @@
 {
   "postCreateCommand": "make setup-devcontainer",
-  "extensions": []
+  "extensions": [
+    "matklad.rust-analyzer",
+    "esbenp.prettier-vscode",
+    "arcanis.vscode-zipfs",
+    "rust-lang.rust"
+  ],
+  "settings": {
+    "#terminal.integrated.shell.linux#": "/usr/bin/fish"
+  }
 }
