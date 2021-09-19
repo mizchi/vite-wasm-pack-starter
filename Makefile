@@ -14,7 +14,7 @@ build: build-rust
 test:
 	cargo test
 
-watch:
+watch: build-rust
 	yarn watch
 
 .PHONY: build

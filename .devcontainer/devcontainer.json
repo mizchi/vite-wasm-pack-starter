@@ -3,8 +3,7 @@
   "extensions": [
     "matklad.rust-analyzer",
     "esbenp.prettier-vscode",
-    "arcanis.vscode-zipfs",
-    "rust-lang.rust"
+    "arcanis.vscode-zipfs"
   ],
   "settings": {
     "#terminal.integrated.shell.linux#": "/usr/bin/fish"
