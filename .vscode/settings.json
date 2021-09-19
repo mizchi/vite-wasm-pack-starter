@@ -1,0 +1,9 @@
+{
+  "rust-analyzer.diagnostics.disabled": ["missing-unsafe"],
+  "search.exclude": {
+    "**/.yarn": true,
+    "**/.pnp.*": true
+  },
+  "typescript.tsdk": ".yarn/sdks/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
+}

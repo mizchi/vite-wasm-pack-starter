@@ -15,8 +15,7 @@ extern "C" {
 #[wasm_bindgen]
 pub fn start() {
     // utils::set_panic_hook();
-    web_sys::console::log_1(&"Hello from Rust 3".into());
-    // stop_me();
+    web_sys::console::log_1(&"Hello from Rust 7".into());
 }
 
 #[wasm_bindgen]
